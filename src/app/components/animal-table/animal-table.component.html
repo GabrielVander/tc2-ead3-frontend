@@ -1,17 +1,21 @@
-<nz-table #basicTable [nzData]="listOfData" [nzShowPagination]="false" [nzTableLayout]="'fixed'">
+<nz-table #animalTable [nzData]="animalList" [nzLoading]="isLoading" [nzShowPagination]="false"
+          [nzTableLayout]="'fixed'">
   <thead>
   <tr>
     <th>Name</th>
     <th>Age</th>
-    <th>Address</th>
-    <th>Action</th>
+    <th>Weight</th>
+    <th>Race</th>
+    <th>Type</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let data of basicTable.data">
-    <td>{{ data.name }}</td>
-    <td>{{ data.age }}</td>
-    <td>{{ data.address }}</td>
+  <tr *ngFor="let animal of animalTable.data">
+    <td>{{ animal.name }}</td>
+    <td>{{ animal.age }}</td>
+    <td>{{ animal.weight }}</td>
+    <td>{{ animal.race }}</td>
+    <td>{{ animal.type }}</td>
     <td>
       <a>Edit</a>
       <nz-divider nzType="vertical"></nz-divider>

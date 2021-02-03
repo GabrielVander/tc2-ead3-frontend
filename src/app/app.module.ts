@@ -13,6 +13,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 import { AnimalTableComponent } from './components/animal-table/animal-table.component';
 
 registerLocaleData(en);
@@ -30,7 +31,8 @@ registerLocaleData(en);
     NzTableModule,
     NzButtonModule,
     NzGridModule,
-    NzDividerModule
+    NzDividerModule,
+    NzMessageModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

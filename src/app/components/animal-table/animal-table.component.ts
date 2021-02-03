@@ -1,35 +1,18 @@
-import { Component } from '@angular/core';
-
-interface Person {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
+import {Component} from '@angular/core';
+import {AnimalService} from '../../services/animal/animal.service';
+import Animal from '../../models/Animal';
 
 @Component({
   selector: 'app-animal-table',
   templateUrl: './animal-table.component.html'
 })
 export class AnimalTableComponent {
-  listOfData: Person[] = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park'
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    }
-  ];
+
+  animalList: Animal[];
+  isLoading: boolean;
+
+  constructor(private animalService: AnimalService) {
+    this.animalService.animalList.subscribe(value => this.animalList = value);
+    this.animalService.isAnimalTableLoading.subscribe(value => this.isLoading = value);
+  }
 }
