@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AnimalService} from './services/animal/animal.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tc2-ead3-frontend';
+
+  title = 'My Sweet Little Animals';
+
+  constructor(private animalService: AnimalService) {
+  }
+
+  openNewAnimalModal(): void {
+    this.animalService.openNewAnimalModal();
+  }
 }
