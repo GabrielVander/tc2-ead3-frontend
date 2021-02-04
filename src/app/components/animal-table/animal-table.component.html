@@ -22,8 +22,6 @@
     <td>{{ animal.createdAt }}</td>
     <td>{{ animal.updatedAt }}</td>
     <td>
-      <a>Edit</a>
-      <nz-divider nzType="vertical"></nz-divider>
       <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteAnimal(animal)">Delete</a>
     </td>
   </tr>
