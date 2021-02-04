@@ -4,6 +4,7 @@ import {BehaviorSubject} from 'rxjs';
 import {NzMessageService} from 'ng-zorro-antd/message';
 import Animal from '../../models/Animal';
 import ApiResponseMultipleResults from '../../models/ApiResponseMultipleResults';
+import ApiResponseSingleResult from '../../models/ApiResponseSingleResult';
 
 @Injectable({
   providedIn: 'root'
@@ -74,6 +75,34 @@ export class AnimalService {
       .catch(error => this.messageService.error(error.message))
       .finally(() => this.$isAnimalModalLoading.next(false))
     ;
+  }
+
+  deleteAnimal(animalId: string): void {
+    this.$isAnimalTableLoading.next(true);
+    this.http
+      .request<ApiResponseSingleResult<Animal>>(
+        'delete',
+        this.$animalApiUrl,
+        {
+          body: {
+            _id: animalId,
+          }
+        }
+      )
+      .toPromise()
+      .then(result => {
+        this.$isAnimalTableLoading.next(false);
+        if (result.status) {
+          this.messageService.success(`${result.data.name} deleted successfully`);
+          this.updateAnimalList();
+        } else {
+          this.messageService.error(`Something went wrong`);
+        }
+      })
+      .catch(error => {
+        this.$isAnimalTableLoading.next(false);
+        this.messageService.error(error.message);
+      });
   }
 
 }

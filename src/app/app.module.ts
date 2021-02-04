@@ -17,6 +17,7 @@ import {NzModalModule} from 'ng-zorro-antd/modal';
 import {NzFormModule} from 'ng-zorro-antd/form';
 import {NzInputModule} from 'ng-zorro-antd/input';
 import {NzInputNumberModule} from 'ng-zorro-antd/input-number';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import {AnimalTableComponent} from './components/animal-table/animal-table.component';
 import {NewAnimalModalComponent} from './components/new-animal-modal/new-animal-modal.component';
 
@@ -42,7 +43,8 @@ registerLocaleData(en);
     NzFormModule,
     NzInputModule,
     NzInputNumberModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzPopconfirmModule
   ],
   providers: [{provide: NZ_I18N, useValue: en_US}],
   bootstrap: [AppComponent]

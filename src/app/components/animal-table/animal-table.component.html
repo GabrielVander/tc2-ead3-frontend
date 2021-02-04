@@ -24,7 +24,7 @@
     <td>
       <a>Edit</a>
       <nz-divider nzType="vertical"></nz-divider>
-      <a>Delete</a>
+      <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteAnimal(animal)">Delete</a>
     </td>
   </tr>
   </tbody>

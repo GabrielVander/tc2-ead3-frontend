@@ -15,4 +15,8 @@ export class AnimalTableComponent {
     this.animalService.animalList.subscribe(value => this.animalList = value);
     this.animalService.isAnimalTableLoading.subscribe(value => this.isLoading = value);
   }
+
+  deleteAnimal(animal: Animal): void {
+    this.animalService.deleteAnimal(animal._id);
+  }
 }
